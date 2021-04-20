@@ -1,0 +1,85 @@
+/*
+COLORS:
+
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 1.7;
+  color: #777;
+  padding: 30px;
+}
+
+.header {
+  height: 95vh;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(126, 213, 111, 0.8),
+      rgba(40, 180, 131, 0.8)
+    ),
+    url(../img/hero.jpg);
+  background-size: cover;
+  background-position: top;
+  position: relative;
+
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
+
+.logo-box {
+  /* the position absolute is relative to the parent, in this case, the header, 
+  therefore we should also specify the position as relative in the header section */
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+
+.logo {
+  height: 35px;
+  /* There is no need to specify the width as the browser does it
+  automatically adjusting for the height */
+}
+
+.text-box {
+  /* Below a technique to centralize the entire text box inside the parent widget*/
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  /* Above we specify the position of the text-box, relative to the parent widget
+  below, we transform, and translate -50%% relative to the text-box itself */
+  transform: translate(-50%, -50%);
+}
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.heading-primary-main {
+  /* we split the h1 into two spans with different classes, and separate
+  them into two different blocks, using the display:block property */
+  /* This is important because for SEO perspective, we would like to have the title
+  as the full text in h1 */
+  display: block;
+  font-size: 60px;
+  font-weight: 400;
+  letter-spacing: 35px;
+}
+
+.heading-primary-sub {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 17.4px;
+}
