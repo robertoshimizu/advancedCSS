@@ -64,6 +64,9 @@ body {
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
+
+  /* this feature eliminates "shaking" on animation */
+  backface-visibility: hidden;
 }
 
 .heading-primary-main {
@@ -75,6 +78,13 @@ body {
   font-size: 60px;
   font-weight: 400;
   letter-spacing: 35px;
+  /* Below we specify the animation name, which we created down below */
+  animation-name: moveInLeft;
+  animation-duration: 2s;
+  animation-timing-function: ease-out;
+
+  /* animation-delay: 2s;
+  animation-iteration-count: 3; */
 }
 
 .heading-primary-sub {
@@ -82,4 +92,44 @@ body {
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 17.4px;
+  /* Below we specify the animation name, which we created down below */
+  animation-name: moveInRight;
+  animation-duration: 2s;
+  animation-timing-function: ease-out;
+}
+
+@keyframes moveInLeft {
+  /* percentages indicate the state of animation
+  where 0% is the initial state and 100% the final state */
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  80% {
+    transform: translateX(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveInRight {
+  /* percentages indicate the state of animation
+  where 0% is the initial state and 100% the final state */
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  80% {
+    transform: translateX(-20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
