@@ -1,0 +1,17 @@
+{
+  "name": "advancedCSS",
+  "version": "1.0.0",
+  "description": "Repo to follow through the Advanced CSS course from Jonas Schmedtmann",
+  "main": "index.js",
+  "scripts": {
+    "compile": "node-sass sass/main.scss css/style.css -w"
+  },
+  "repository": "git@github.com:robertoshimizu/advancedCSS.git",
+  "author": "robertoshimizu <rshimizubr@gmail.com>",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^7.24.0",
+    "node-sass": "^5.0.0"
+  }
+}
