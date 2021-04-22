@@ -45,7 +45,7 @@ Sass supports two different syntaxes. Each one can load the other, so it's up to
 
 - In object-oriented programming languages, a `mixin` is a class that contains methods for use by other classes without having to be the parent class of those other classes. How those other classes gain access to the mixin's methods depends on the language. Mixins are sometimes described as being "included" rather than "inherited". Mixins encourage code reuse and can be used to avoid the inheritance ambiguity that multiple inheritance can cause (the "diamond problem"), or to work around lack of support for multiple inheritance in a language. A mixin can also be viewed as an interface with implemented methods. This pattern is an example of enforcing the dependency inversion principle.
 - With Sass you can write a repetitive piece of code and inject these code in other element like a variable.
-```
+```CSS
 @mixin reset-list {
   margin: 0;
   padding: 0;
@@ -70,7 +70,7 @@ nav ul {
 ```
 Mixins can also take **arguments**, which allows their behavior to be customized each time they’re called. The arguments are specified in the @mixin rule after the mixin’s name, as a list of variable names surrounded by parentheses. The mixin must then be included with the same number of arguments in the form of `SassScript expressions`. The values of these expression are available within the mixin’s body as the corresponding variables.
 
-```
+```CSS
 @mixin rtl($property, $ltr-value, $rtl-value) {
   #{$property}: $ltr-value;
 
@@ -82,6 +82,38 @@ Mixins can also take **arguments**, which allows their behavior to be customized
 .sidebar {
   @include rtl(float, left, right);
 }
+```
+
+
+### BEM Methodology
+
+It is a known fact that the right styleguide can significantly increase development speed, debugging, and the implementation of new features in legacy code. Sadly, most CSS codebases are sometimes developed without any structure or naming conventions. This leads to an unmaintainable CSS codebase in the long term.
+
+The BEM approach ensures that everyone who participates in the development of a website works with a single codebase and speaks the same language. Using proper naming will prepare you for the changes in design of the website.
+
+BEM stands for `Block` , `Element`, `Modifier`.
+
+```CSS
+/* Block component */
+.btn {}
+
+/* Element that depends upon the block */ 
+.btn__price {}
+
+/* Modifier that changes the style of the block */
+.btn--orange {} 
+.btn--big {}
+```
+
+In this CSS methodology a block is a top-level abstraction of a new component, for example a button: `.btn { }`. This block should be thought of as a parent. Child items, or elements, can be placed inside and these are denoted by two underscores following the name of the block like `.btn__price { }`. Finally, modifiers can manipulate the block so that we can theme or style that particular component without inflicting changes on a completely unrelated module. This is done by appending two hyphens to the name of the block just like `btn--orange`.
+
+The markup might then look like this:
+
+```html
+<a class="btn btn--big btn--orange" href="https://css-tricks.com">
+  <span class="btn__price">$9.99</span>
+  <span class="btn__text">Subscribe</span>
+</a>
 ```
 
 - credits to [Advanced CSS and Sass: Flexbox, Grid, Animations and More!](https://www.udemy.com/course/advanced-css-and-sass/), by Jonas Schmedtmann.
