@@ -4,17 +4,24 @@ $color-primary-dark:#28b485;
 
 $color-grey-dark:#777;
 $color-white:#fff;
+$color-black:#000;
 
-* {
+*,
+*::after,
+*::before {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+  }
+
+  html{
+    font-size: 62.5%;
   }
   
   body {
     font-family: "Lato", sans-serif;
     font-weight: 400;
-    font-size: 26px;
+    // font-size: 26px;
     line-height: 1.7;
     color: $color-grey-dark;
     padding: 30px;
@@ -35,7 +42,7 @@ $color-white:#fff;
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   }
   
-  .logo-box {
+  .header__logo-box {
     /* the position absolute is relative to the parent, in this case, the header, 
     therefore we should also specify the position as relative in the header section */
     position: absolute;
@@ -43,13 +50,13 @@ $color-white:#fff;
     left: 40px;
   }
   
-  .logo {
+  .header__logo {
     height: 35px;
     /* There is no need to specify the width as the browser does it
     automatically adjusting for the height */
   }
   
-  .text-box {
+  .header__text-box {
     /* Below a technique to centralize the entire text box inside the parent widget*/
     position: absolute;
     top: 40%;
@@ -61,7 +68,7 @@ $color-white:#fff;
   }
   
   .heading-primary {
-    color: $color-grey-dark;
+    color: $color-white;
     text-transform: uppercase;
   
     /* this feature eliminates "shaking" on animation */
@@ -69,7 +76,7 @@ $color-white:#fff;
     margin-bottom: 60px;
   }
   
-  .heading-primary-main {
+  .heading-primary--main {
     /* we split the h1 into two spans with different classes, and separate
     them into two different blocks, using the display:block property */
     /* This is important because for SEO perspective, we would like to have the title
@@ -87,7 +94,7 @@ $color-white:#fff;
     animation-iteration-count: 3; */
   }
   
-  .heading-primary-sub {
+  .heading-primary--sub {
     display: block;
     font-size: 20px;
     font-weight: 700;
@@ -161,15 +168,15 @@ $color-white:#fff;
   
   .btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 20px rgba($color-black, 0.2);
   }
   
   .btn:active {
     transform: translateY(-1px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 10px rgba($color-black, 0.2);
   }
   
-  .btn-white {
+  .btn--white {
     background-color: $color-white;
     color: $color-grey-dark;
   }
@@ -187,7 +194,7 @@ $color-white:#fff;
     transition: all 0.4s;
   }
   
-  .btn-white::after {
+  .btn--white::after {
     background-color: $color-grey-dark;
   }
   
@@ -196,7 +203,7 @@ $color-white:#fff;
     opacity: 0;
   }
   
-  .btn-animated {
+  .btn--animated {
     animation: moveInBottom 0.5s ease-out 0.75s;
     animation-fill-mode: backwards;
   }
