@@ -4,17 +4,24 @@ $color-primary-dark:#28b485;
 
 $color-grey-dark:#777;
 $color-white:#fff;
+$color-black:#000;
 
-* {
+*,
+*::after,
+*::before {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+  }
+
+  html{
+    font-size: 62.5%;
   }
   
   body {
     font-family: "Lato", sans-serif;
     font-weight: 400;
-    font-size: 26px;
+    // font-size: 26px;
     line-height: 1.7;
     color: $color-grey-dark;
     padding: 30px;
@@ -33,71 +40,75 @@ $color-white:#fff;
     position: relative;
   
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-  }
   
-  .logo-box {
+    &__logo-box {
     /* the position absolute is relative to the parent, in this case, the header, 
     therefore we should also specify the position as relative in the header section */
     position: absolute;
     top: 40px;
     left: 40px;
-  }
+    }
+
+    &__logo {
+      height: 35px;
+      /* There is no need to specify the width as the browser does it
+      automatically adjusting for the height */
+    }
+    
+    &__text-box {
+      /* Below a technique to centralize the entire text box inside the parent widget*/
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      /* Above we specify the position of the text-box, relative to the parent widget
+      below, we transform, and translate -50%% relative to the text-box itself */
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
   
-  .logo {
-    height: 35px;
-    /* There is no need to specify the width as the browser does it
-    automatically adjusting for the height */
-  }
   
-  .text-box {
-    /* Below a technique to centralize the entire text box inside the parent widget*/
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    /* Above we specify the position of the text-box, relative to the parent widget
-    below, we transform, and translate -50%% relative to the text-box itself */
-    transform: translate(-50%, -50%);
-    text-align: center;
   }
-  
+    
   .heading-primary {
-    color: $color-grey-dark;
+    color: $color-white;
     text-transform: uppercase;
   
     /* this feature eliminates "shaking" on animation */
     backface-visibility: hidden;
     margin-bottom: 60px;
+
+      &--main {
+        /* we split the h1 into two spans with different classes, and separate
+        them into two different blocks, using the display:block property */
+        /* This is important because for SEO perspective, we would like to have the title
+        as the full text in h1 */
+        display: block;
+        font-size: 60px;
+        font-weight: 400;
+        letter-spacing: 35px;
+        /* Below we specify the animation name, which we created down below */
+        animation-name: moveInLeft;
+        animation-duration: 2s;
+        animation-timing-function: ease-out;
+      
+        /* animation-delay: 2s;
+        animation-iteration-count: 3; */
+      }
+      
+      &--sub {
+        display: block;
+        font-size: 20px;
+        font-weight: 700;
+        letter-spacing: 17.4px;
+        /* Below we specify the animation name, which we created down below */
+        animation-name: moveInRight;
+        animation-duration: 2s;
+        animation-timing-function: ease-out;
+      }
+
+
   }
-  
-  .heading-primary-main {
-    /* we split the h1 into two spans with different classes, and separate
-    them into two different blocks, using the display:block property */
-    /* This is important because for SEO perspective, we would like to have the title
-    as the full text in h1 */
-    display: block;
-    font-size: 60px;
-    font-weight: 400;
-    letter-spacing: 35px;
-    /* Below we specify the animation name, which we created down below */
-    animation-name: moveInLeft;
-    animation-duration: 2s;
-    animation-timing-function: ease-out;
-  
-    /* animation-delay: 2s;
-    animation-iteration-count: 3; */
-  }
-  
-  .heading-primary-sub {
-    display: block;
-    font-size: 20px;
-    font-weight: 700;
-    letter-spacing: 17.4px;
-    /* Below we specify the animation name, which we created down below */
-    animation-name: moveInRight;
-    animation-duration: 2s;
-    animation-timing-function: ease-out;
-  }
-  
+   
   @keyframes moveInLeft {
     /* percentages indicate the state of animation
     where 0% is the initial state and 100% the final state */
@@ -147,57 +158,63 @@ $color-white:#fff;
       transform: translate(0);
     }
   }
-  
-  .btn:link,
-  .btn:visited {
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 15px 40px;
-    display: inline-block;
-    border-radius: 100px;
-    transition: all 0.2s;
-    position: relative;
+
+  .btn {
+      &:link,
+      &:visited {
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 15px 40px;
+        display: inline-block;
+        border-radius: 100px;
+        transition: all 0.2s;
+        position: relative;
+      }
+      
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba($color-black, 0.2);
+        
+        &::after {
+          transform: scaleX(1.4) scaleY(1.6);
+          opacity: 0;
+        }
+      }
+      
+      &:active {
+        transform: translateY(-1px);
+        box-shadow: 0 5px 10px rgba($color-black, 0.2);
+      }
+      
+      &--white {
+        background-color: $color-white;
+        color: $color-grey-dark;
+
+        &::after {
+          background-color: $color-grey-dark;
+        }
+
+      }
+      
+      &::after {
+        content: "";
+        display: inline;
+        height: 100%;
+        width: 100%;
+        border-radius: 100px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: all 0.4s;
+      }  
+    
+      &--animated {
+        animation: moveInBottom 0.5s ease-out 0.75s;
+        animation-fill-mode: backwards;
+      }
+
   }
   
-  .btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  }
   
-  .btn:active {
-    transform: translateY(-1px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-  }
-  
-  .btn-white {
-    background-color: $color-white;
-    color: $color-grey-dark;
-  }
-  
-  .btn::after {
-    content: "";
-    display: inline;
-    height: 100%;
-    width: 100%;
-    border-radius: 100px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    transition: all 0.4s;
-  }
-  
-  .btn-white::after {
-    background-color: $color-grey-dark;
-  }
-  
-  .btn:hover::after {
-    transform: scaleX(1.4) scaleY(1.6);
-    opacity: 0;
-  }
-  
-  .btn-animated {
-    animation: moveInBottom 0.5s ease-out 0.75s;
-    animation-fill-mode: backwards;
-  }
   
