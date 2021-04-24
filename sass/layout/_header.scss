@@ -1,0 +1,39 @@
+.header {
+  height: 95vh;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.8),
+      rgba($color-primary-dark, 0.8)
+    ),
+    url(../img/hero.jpg);
+  background-size: cover;
+  background-position: top;
+  position: relative;
+
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+  &__logo-box {
+    /* the position absolute is relative to the parent, in this case, the header, 
+      therefore we should also specify the position as relative in the header section */
+    position: absolute;
+    top: 40px;
+    left: 40px;
+  }
+
+  &__logo {
+    height: 35px;
+    /* There is no need to specify the width as the browser does it
+        automatically adjusting for the height */
+  }
+
+  &__text-box {
+    /* Below a technique to centralize the entire text box inside the parent widget*/
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    /* Above we specify the position of the text-box, relative to the parent widget
+        below, we transform, and translate -50%% relative to the text-box itself */
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+}

@@ -1,0 +1,49 @@
+@keyframes moveInLeft {
+  /* percentages indicate the state of animation
+      where 0% is the initial state and 100% the final state */
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  80% {
+    transform: translateX(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveInRight {
+  /* percentages indicate the state of animation
+      where 0% is the initial state and 100% the final state */
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  80% {
+    transform: translateX(-20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveInBottom {
+  /* percentages indicate the state of animation
+      where 0% is the initial state and 100% the final state */
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}

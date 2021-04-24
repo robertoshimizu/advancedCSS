@@ -1,0 +1,46 @@
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  // font-size: 26px;
+  line-height: 1.7;
+  color: $color-grey-dark;
+  padding: 30px;
+}
+
+.heading-primary {
+  color: $color-white;
+  text-transform: uppercase;
+
+  /* this feature eliminates "shaking" on animation */
+  backface-visibility: hidden;
+  margin-bottom: 60px;
+
+  &--main {
+    /* we split the h1 into two spans with different classes, and separate
+          them into two different blocks, using the display:block property */
+    /* This is important because for SEO perspective, we would like to have the title
+          as the full text in h1 */
+    display: block;
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 35px;
+    /* Below we specify the animation name, which we created down below */
+    animation-name: moveInLeft;
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+
+    /* animation-delay: 2s;
+          animation-iteration-count: 3; */
+  }
+
+  &--sub {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 17.4px;
+    /* Below we specify the animation name, which we created down below */
+    animation-name: moveInRight;
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+  }
+}
