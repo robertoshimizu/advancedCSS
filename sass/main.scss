@@ -2,18 +2,21 @@
 // Import the variables first (always),
 // then the rest of the partials that make use of the variables
 
-@import "abstracts/variables";
 @import "abstracts/functions";
 @import "abstracts/mixins";
+@import "abstracts/variables";
 
-@import "base/base";
 @import "base/animations";
+@import "base/base";
 @import "base/typography";
 @import "base/utility-classes";
 
-@import "pages/home";
 @import "components/button";
+@import "components/card";
 @import "components/composition";
 @import "components/feature-box";
+
 @import "layout/flexbox";
 @import "layout/header";
+
+@import "pages/home";
