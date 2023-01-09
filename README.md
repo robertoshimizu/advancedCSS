@@ -12,15 +12,17 @@ In addition, CSS and javascript has evolved during the years, and knowing how to
 ### The CSS Box Model
 
 <img src="./img/css_box_model.png" />
+
 ### Notes
 
-1. Absolute vs relative position. Normally define parent widget as relative and child widgets as absolute.
+1. Absolute vs relative position. Normally define parent widget as `relative` and child widgets as `absolute`.
+   <img src="./img/absolute_relative.png" width=500/>
 2. transform: translate, position it relative to widget itself
 3. @keyframe: provides frames per time stamp, from 0 to 1. Here you can define many types of animations.
 4. display: block (display elements one after the other, like paragraphs)or inline-block (display elements in the inline direction, like words are displayed in a sentence).
 5. [pseudo elements](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements).A CSS pseudo-element is a keyword added to a selector that lets you style a specific part of the selected element(s). For example, `::first-line` can be used to change the font of the first line of a paragraph.
 
-```
+```css
 /* The first line of every <p> element. */
 p::first-line {
   color: blue;
@@ -30,14 +32,20 @@ p::first-line {
 
 Pseudo-elements defined by a set of CSS specifications.
 
-6. [pseudo class](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes) is a keyword added to a selector that specifies a special state of the selected element(s). For example, :hover can be used to change a button's color when the user's pointer hovers over it.
+6. [pseudo class](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes) is a keyword added to a selector that specifies a special state of the selected element(s). For example, `:hover` can be used to change a button's color when the user's pointer hovers over it.
 
-```
+```css
 /* Any button over which the user's pointer is hovering */
 button:hover {
   color: blue;
 }
 ```
+
+A pseudo-class consists of a `colon (:)` followed by the pseudo-class name (e.g., `:hover`).
+
+Pseudo-classes let you apply a style to an element not only in relation to the content of the document tree, but also in relation to external factors like the history of the navigator (`:visited`, for example), the status of its content (like `:checked` on certain form elements), or the position of the mouse (like `:hover`, which lets you know if the mouse is over an element or not).
+
+In contrast to pseudo-classes, pseudo-elements can be used to style a specific part of an element.
 
 ### Sass
 
